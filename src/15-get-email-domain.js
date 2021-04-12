@@ -1,15 +1,18 @@
-/**
- * Given an email address, return it's domain.
- *
- * @param {String} email
- * @return {String}
- *
- * @example
- * For the input 'prettyandsimple@example.com', the output should be 'example.com'
- *
- */
-function getEmailDomain(/* email */) {
-  throw new Error('Not implemented');
+function getEmailDomain(str) {
+  let domain = '';
+  let temp = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (temp) {
+      domain += str[i];
+    }
+    if (str[i] === '@') {
+      temp++;
+      if (temp === 2) {
+        domain = '';
+      }
+    }
+  }
+  return domain;
 }
 
 module.exports = getEmailDomain;
