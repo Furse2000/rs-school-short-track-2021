@@ -1,4 +1,3 @@
-
 function getSumOfDigits(n) {
   let sum = 0;
   const strNArr = n.toString().split('');
