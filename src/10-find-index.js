@@ -1,24 +1,20 @@
-/**
- * Given a sorted array, find the index of the element with the given value.
- * Time complexity should be O(logN)
- *
- * @param {Array} array
- * @param {Number} value
- * @return {Number}
- *
- * @example
- * For ([1, 2, 3], 1) should return 0
- * For ([1, 2, 3], 2) should return 1
- *
- */
 function findIndex(array, value) {
-  let ind = 0;
-  while (1) {
-    if (array[ind] === value) {
-      return ind;
+  let result = -1;
+  let findout = false;
+  let mid;
+  let l = 0;
+  let r = array.length - 1;
+  while (findout === false && l <= r) {
+    mid = Math.floor((r + l) / 2);
+    if (array[mid] === value) {
+      findout = true;
+      result = mid;
+    } else if (array[mid] > value) {
+      r = mid - 1;
+    } else {
+      l = mid + 1;
     }
-    ind++;
   }
+  return result;
 }
-
 module.exports = findIndex;
